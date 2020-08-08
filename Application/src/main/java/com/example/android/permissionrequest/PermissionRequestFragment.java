@@ -214,7 +214,11 @@ public class PermissionRequestFragment extends Fragment
 
     @Override
     public void onOkClicked() {
-        requestPermissions(new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
+        requestPermissions(new String[]{
+                Manifest.permission.MODIFY_AUDIO_SETTINGS,
+                Manifest.permission.RECORD_AUDIO,
+                Manifest.permission.CAMERA
+        }, REQUEST_CAMERA_PERMISSION);
     }
 
     @Override
