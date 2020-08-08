@@ -192,6 +192,10 @@ public class PermissionRequestFragment extends Fragment
 
         @Override
         public boolean onConsoleMessage(@NonNull ConsoleMessage message) {
+            Log.d(TAG, "--- New Console Message ---");
+            Log.d(TAG, "toString: " + message.toString());
+            Log.d(TAG, "Source ID: " + message.sourceId());
+            Log.d(TAG, "Line Number: " + message.lineNumber());
             switch (message.messageLevel()) {
                 case TIP:
                     Log.v(TAG, message.message());
