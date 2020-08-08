@@ -48,6 +48,8 @@ public class PermissionRequestFragment extends Fragment
 
     private static final int REQUEST_CAMERA_PERMISSION = 1;
 
+    private static final String HTML_FILE_PATH = "/video.html"; // "/sample.html";
+
     /**
      * We use this web server to serve HTML files in the assets folder. This is because we cannot
      * use the JavaScript method "getUserMedia" from "file:///android_assets/..." URLs.
@@ -96,7 +98,7 @@ public class PermissionRequestFragment extends Fragment
                 != PackageManager.PERMISSION_GRANTED) {
             requestCameraPermission();
         } else {
-            mWebView.loadUrl("http://localhost:" + port + "/sample.html");
+            mWebView.loadUrl("http://localhost:" + port + HTML_FILE_PATH);
         }
     }
 
@@ -116,7 +118,7 @@ public class PermissionRequestFragment extends Fragment
                     grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                 Log.e(TAG, "Camera permission not granted.");
             } else if (mWebView != null && mWebServer != null) {
-                mWebView.loadUrl("http://localhost:" + mWebServer.getPort() + "/sample.html");
+                mWebView.loadUrl("http://localhost:" + mWebServer.getPort() + HTML_FILE_PATH);
             }
         } else {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
