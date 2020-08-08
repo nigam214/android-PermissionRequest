@@ -135,6 +135,7 @@ public class PermissionRequestFragment extends Fragment
     @SuppressLint("SetJavaScriptEnabled")
     private static void configureWebSettings(WebSettings settings) {
         settings.setJavaScriptEnabled(true);
+        settings.setMediaPlaybackRequiresUserGesture(false);
     }
 
     /**
