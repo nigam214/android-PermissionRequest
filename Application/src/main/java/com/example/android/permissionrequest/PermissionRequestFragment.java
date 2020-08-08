@@ -84,7 +84,6 @@ public class PermissionRequestFragment extends Fragment
     @Override
     public void onResume() {
         super.onResume();
-        final int port = 8080;
         // This is for runtime permission on Marshmallow and above; It is not directly related to
         // PermissionRequest API.
         if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA)
