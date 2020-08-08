@@ -146,8 +146,6 @@ public class PermissionRequestFragment extends Fragment
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
         settings.setMediaPlaybackRequiresUserGesture(false);
-//        settings.setUserAgentString("Mozilla/5.0 (Linux; Android 10; Nokia 6.1 Plus Build/QKQ1.190828.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/84.0.4147.111 Mobile Safari/537.36");
-//        settings.setUserAgentString("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36\n");
         System.out.println("User Agent: " + settings.getUserAgentString());
     }
 
