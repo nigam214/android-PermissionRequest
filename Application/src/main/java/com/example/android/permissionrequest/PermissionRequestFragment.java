@@ -33,6 +33,7 @@ import android.webkit.PermissionRequest;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.example.android.common.logger.Log;
 
@@ -79,6 +80,15 @@ public class PermissionRequestFragment extends Fragment
         mWebView = (WebView) view.findViewById(R.id.web_view);
         // Here, we use #mWebChromeClient with implementation for handling PermissionRequests.
         mWebView.setWebChromeClient(mWebChromeClient);
+
+        mWebView.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return false;
+            }
+        });
+
         configureWebSettings(mWebView.getSettings());
     }
 
