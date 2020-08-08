@@ -51,7 +51,8 @@ public class PermissionRequestFragment extends Fragment
 
 //    private static final String WEB_URL = "https://www.kirupa.com/snippets/examples/stop_webcam_stream.htm";
 //    private static final String WEB_URL = "https://davidwalsh.name/demo/camera.php";
-    private static final String WEB_URL = "https://whereby.com/virtubox";
+//    private static final String WEB_URL = "https://whereby.com/virtubox";
+    private static final String WEB_URL = "https://whereby.com/virtubox?skipMediaPermissionPrompt";
 
     /**
      * A reference to the {@link WebView}.
