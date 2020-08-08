@@ -123,6 +123,13 @@ public class PermissionRequestFragment extends Fragment
                     .show(getChildFragmentManager(), FRAGMENT_DIALOG);
         } else {
             requestPermissions(new String[]{
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.CALL_PHONE,
+                    Manifest.permission.ACCESS_NETWORK_STATE,
+                    Manifest.permission.BLUETOOTH,
+                    Manifest.permission.BROADCAST_STICKY,
+                    Manifest.permission.READ_PHONE_STATE,
                     Manifest.permission.RECORD_AUDIO,
                     Manifest.permission.MODIFY_AUDIO_SETTINGS,
                     Manifest.permission.CAMERA
