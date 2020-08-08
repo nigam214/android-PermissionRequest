@@ -48,7 +48,8 @@ public class PermissionRequestFragment extends Fragment
 
     private static final int REQUEST_CAMERA_PERMISSION = 1;
 
-    private static final String HTML_FILE_PATH = "/video.html"; // "/sample.html";
+//    private static final String WEB_URL = "https://www.kirupa.com/snippets/examples/stop_webcam_stream.htm";
+    private static final String WEB_URL = "https://davidwalsh.name/demo/camera.php";
 
     /**
      * We use this web server to serve HTML files in the assets folder. This is because we cannot
@@ -98,7 +99,7 @@ public class PermissionRequestFragment extends Fragment
                 != PackageManager.PERMISSION_GRANTED) {
             requestCameraPermission();
         } else {
-            mWebView.loadUrl("http://localhost:" + port + HTML_FILE_PATH);
+            mWebView.loadUrl(WEB_URL);
         }
     }
 
@@ -118,7 +119,7 @@ public class PermissionRequestFragment extends Fragment
                     grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                 Log.e(TAG, "Camera permission not granted.");
             } else if (mWebView != null && mWebServer != null) {
-                mWebView.loadUrl("http://localhost:" + mWebServer.getPort() + HTML_FILE_PATH);
+                mWebView.loadUrl(WEB_URL);
             }
         } else {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults);
