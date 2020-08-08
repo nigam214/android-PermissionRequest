@@ -169,15 +169,9 @@ public class PermissionRequestFragment extends Fragment
             Log.i(TAG, "onPermissionRequest");
             mPermissionRequest = request;
             final String[] requestedResources = request.getResources();
-            for (String r : requestedResources) {
-                if (r.equals(PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
-                    // In this sample, we only accept video capture request.
-                    ConfirmationDialogFragment
-                            .newInstance(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE})
-                            .show(getChildFragmentManager(), FRAGMENT_DIALOG);
-                    break;
-                }
-            }
+            ConfirmationDialogFragment
+                    .newInstance(requestedResources)
+                    .show(getChildFragmentManager(), FRAGMENT_DIALOG);
         }
 
         // This method is called when the permission request is canceled by the web content.
