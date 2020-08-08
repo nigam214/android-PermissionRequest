@@ -37,7 +37,7 @@ import android.webkit.WebView;
 import com.example.android.common.logger.Log;
 
 /**
- * This fragment shows a {@link WebView} and loads a web app from the {@link SimpleWebServer}.
+ * This fragment shows a {@link WebView} and loads a web page.
  */
 public class PermissionRequestFragment extends Fragment
         implements ConfirmationDialogFragment.Listener, MessageDialogFragment.Listener {
@@ -50,12 +50,6 @@ public class PermissionRequestFragment extends Fragment
 
 //    private static final String WEB_URL = "https://www.kirupa.com/snippets/examples/stop_webcam_stream.htm";
     private static final String WEB_URL = "https://davidwalsh.name/demo/camera.php";
-
-    /**
-     * We use this web server to serve HTML files in the assets folder. This is because we cannot
-     * use the JavaScript method "getUserMedia" from "file:///android_assets/..." URLs.
-     */
-    private SimpleWebServer mWebServer;
 
     /**
      * A reference to the {@link WebView}.
@@ -91,8 +85,6 @@ public class PermissionRequestFragment extends Fragment
     public void onResume() {
         super.onResume();
         final int port = 8080;
-        mWebServer = new SimpleWebServer(port, getResources().getAssets());
-        mWebServer.start();
         // This is for runtime permission on Marshmallow and above; It is not directly related to
         // PermissionRequest API.
         if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA)
@@ -105,7 +97,6 @@ public class PermissionRequestFragment extends Fragment
 
     @Override
     public void onPause() {
-        mWebServer.stop();
         super.onPause();
     }
 
@@ -118,7 +109,7 @@ public class PermissionRequestFragment extends Fragment
             if (permissions.length != 1 || grantResults.length != 1 ||
                     grantResults[0] != PackageManager.PERMISSION_GRANTED) {
                 Log.e(TAG, "Camera permission not granted.");
-            } else if (mWebView != null && mWebServer != null) {
+            } else if (mWebView != null) {
                 mWebView.loadUrl(WEB_URL);
             }
         } else {
