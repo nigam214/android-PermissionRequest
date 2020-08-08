@@ -49,7 +49,8 @@ public class PermissionRequestFragment extends Fragment
     private static final int REQUEST_CAMERA_PERMISSION = 1;
 
 //    private static final String WEB_URL = "https://www.kirupa.com/snippets/examples/stop_webcam_stream.htm";
-    private static final String WEB_URL = "https://davidwalsh.name/demo/camera.php";
+//    private static final String WEB_URL = "https://davidwalsh.name/demo/camera.php";
+    private static final String WEB_URL = "https://whereby.com/virtubox";
 
     /**
      * A reference to the {@link WebView}.
@@ -121,13 +122,18 @@ public class PermissionRequestFragment extends Fragment
             MessageDialogFragment.newInstance(R.string.permission_message)
                     .show(getChildFragmentManager(), FRAGMENT_DIALOG);
         } else {
-            requestPermissions(new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
+            requestPermissions(new String[]{
+                    Manifest.permission.RECORD_AUDIO,
+                    Manifest.permission.MODIFY_AUDIO_SETTINGS,
+                    Manifest.permission.CAMERA
+            }, REQUEST_CAMERA_PERMISSION);
         }
     }
 
     @SuppressLint("SetJavaScriptEnabled")
     private static void configureWebSettings(WebSettings settings) {
         settings.setJavaScriptEnabled(true);
+        settings.setDomStorageEnabled(true);
         settings.setMediaPlaybackRequiresUserGesture(false);
     }
 
